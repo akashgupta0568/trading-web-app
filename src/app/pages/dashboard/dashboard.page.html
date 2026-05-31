@@ -1,5 +1,6 @@
 <ion-content>
   <div class="dashboard-page">
+    <!-- Top Welcome Card -->
     <div class="top-card">
       <div>
         <p class="hello">Welcome back 👋</p>
@@ -10,16 +11,17 @@
       <div class="rocket">🚀</div>
     </div>
 
+    <!-- Stats Cards -->
     <div class="stats-grid">
       <div class="stat-card main">
         <p>Demo Balance</p>
-        <h2>₹{{ demoBalance | number }}</h2>
+        <h2>₹{{ demoBalance | number:'1.2-2' }}</h2>
       </div>
 
       <div class="stat-card">
         <p>Today P&L</p>
         <h2 [class.profit]="todayPnl >= 0" [class.loss]="todayPnl < 0">
-          ₹{{ todayPnl | number }}
+          ₹{{ todayPnl | number:'1.2-2' }}
         </h2>
       </div>
 
@@ -29,11 +31,13 @@
       </div>
     </div>
 
+    <!-- Market Section -->
     <div class="section-title">
       <h2>Live Market</h2>
-      <button>View All</button>
+      <button type="button" (click)="goMarket()">View All</button>
     </div>
 
+    <!-- Live Market List -->
     <div class="market-list">
       <div class="market-card" *ngFor="let asset of assets">
         <div class="asset-left">
@@ -41,27 +45,64 @@
             {{ asset.name.charAt(0) }}
           </div>
 
-          <div>
+          <div class="asset-info">
             <h3>{{ asset.symbol }}</h3>
             <p>{{ asset.name }} · {{ asset.type }}</p>
+
+            <p class="market-extra">
+              H: {{ asset.high | number:'1.2-2' }}
+              |
+              L: {{ asset.low | number:'1.2-2' }}
+            </p>
+
+            <p class="market-extra">
+              Vol: {{ asset.volume }}
+            </p>
           </div>
         </div>
 
         <div class="asset-right">
-          <h3>{{ asset.price }}</h3>
+          <h3 *ngIf="asset.price > 0">
+            {{ asset.price | number:'1.2-4' }}
+          </h3>
+
+          <h3 *ngIf="asset.price === 0">
+            Loading...
+          </h3>
+
           <span [class.up]="asset.change >= 0" [class.down]="asset.change < 0">
-            {{ asset.change }}%
+            {{ asset.change | number:'1.2-2' }}%
           </span>
         </div>
       </div>
     </div>
 
+    <!-- Bottom Navigation -->
     <div class="bottom-nav">
-      <div class="nav-item active">🏠<span>Home</span></div>
-      <div class="nav-item">📊<span>Market</span></div>
-      <div class="nav-item">⚡<span>Trade</span></div>
-      <div class="nav-item">💼<span>Portfolio</span></div>
-      <div class="nav-item">👤<span>Profile</span></div>
+      <div class="nav-item active">
+        🏠
+        <span>Home</span>
+      </div>
+
+      <div class="nav-item">
+        📊
+        <span>Market</span>
+      </div>
+
+      <div class="nav-item">
+        ⚡
+        <span>Trade</span>
+      </div>
+
+      <div class="nav-item">
+        💼
+        <span>Portfolio</span>
+      </div>
+
+      <div class="nav-item">
+        👤
+        <span>Profile</span>
+      </div>
     </div>
   </div>
 </ion-content>

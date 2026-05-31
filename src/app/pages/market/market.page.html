@@ -1,0 +1,83 @@
+<ion-content>
+  <div class="market-page">
+    <div class="page-header">
+      <button type="button" (click)="goDashboard()">←</button>
+
+      <div>
+        <h1>Market</h1>
+        <p>Live Binance prices</p>
+      </div>
+    </div>
+
+    <ion-searchbar
+      placeholder="Search BTC, ETH, Gold..."
+      [(ngModel)]="searchText">
+    </ion-searchbar>
+
+    <ion-segment [(ngModel)]="selectedTab">
+      <ion-segment-button value="All">
+        <ion-label>All</ion-label>
+      </ion-segment-button>
+
+      <ion-segment-button value="Crypto">
+        <ion-label>Crypto</ion-label>
+      </ion-segment-button>
+
+      <ion-segment-button value="Metal">
+        <ion-label>Metals</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+
+    <div class="market-list">
+      <div
+        class="market-card"
+        *ngFor="let asset of filteredAssets"
+        (click)="openTrade(asset)">
+
+        <div class="asset-top">
+          <div class="asset-left">
+            <div class="asset-icon">
+              {{ asset.name.charAt(0) }}
+            </div>
+
+            <div>
+              <h3>{{ asset.symbol }}</h3>
+              <p>{{ asset.name }} · {{ asset.type }}</p>
+            </div>
+          </div>
+
+          <div class="asset-right">
+            <h3 *ngIf="asset.price > 0">
+              {{ asset.price | number:'1.2-4' }}
+            </h3>
+
+            <h3 *ngIf="asset.price === 0">
+              Loading...
+            </h3>
+
+            <span [class.up]="asset.change >= 0" [class.down]="asset.change < 0">
+              {{ asset.change | number:'1.2-2' }}%
+            </span>
+          </div>
+        </div>
+
+        <div class="asset-bottom">
+          <div>
+            <p>High</p>
+            <strong>{{ asset.high | number:'1.2-2' }}</strong>
+          </div>
+
+          <div>
+            <p>Low</p>
+            <strong>{{ asset.low | number:'1.2-2' }}</strong>
+          </div>
+
+          <div>
+            <p>Volume</p>
+            <strong>{{ asset.volume }}</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
