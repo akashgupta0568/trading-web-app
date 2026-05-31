@@ -1,0 +1,41 @@
+<ion-content>
+  <div class="auth-page">
+    <div class="brand-box">
+      <div class="logo">🚀</div>
+      <h1>TradeX Paper</h1>
+      <p>Learn. Trade. Grow.</p>
+    </div>
+
+    <div class="auth-card">
+      <h2>Login</h2>
+
+      <ion-input
+        label="Email"
+        label-placement="floating"
+        fill="outline"
+        type="email"
+        [(ngModel)]="email">
+      </ion-input>
+
+      <ion-input
+        label="Password"
+        label-placement="floating"
+        fill="outline"
+        type="password"
+        [(ngModel)]="password">
+      </ion-input>
+
+      <ion-button expand="block" (click)="login()">
+        Login
+      </ion-button>
+
+      <ion-button fill="clear" expand="block" (click)="goToSignup()">
+        Create new account
+      </ion-button>
+
+      <ion-text color="danger" *ngIf="errorMessage">
+        <p>{{ errorMessage }}</p>
+      </ion-text>
+    </div>
+  </div>
+</ion-content>

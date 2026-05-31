@@ -1,0 +1,63 @@
+.auth-page {
+  min-height: 100%;
+  padding: 28px 20px;
+  background: #fbf7ec;
+  color: #111;
+}
+
+.brand-box {
+  text-align: center;
+  margin-top: 35px;
+  margin-bottom: 30px;
+
+  .logo {
+    width: 76px;
+    height: 76px;
+    margin: auto;
+    border-radius: 24px;
+    background: #c9f56a;
+    display: grid;
+    place-items: center;
+    font-size: 34px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  }
+
+  h1 {
+    font-size: 30px;
+    margin: 16px 0 4px;
+    font-weight: 800;
+  }
+
+  p {
+    margin: 0;
+    color: #555;
+  }
+}
+
+.auth-card {
+  background: #fffaf0;
+  border: 1px solid #151515;
+  border-radius: 28px;
+  padding: 22px;
+  box-shadow: 8px 8px 0 #111;
+
+  h2 {
+    margin-top: 0;
+    font-size: 24px;
+    font-weight: 800;
+  }
+
+  ion-input {
+    margin-bottom: 14px;
+    --border-radius: 16px;
+    --background: #fff;
+  }
+
+  ion-button {
+    margin-top: 12px;
+    --border-radius: 16px;
+    --background: #b8ef5f;
+    --color: #111;
+    font-weight: 700;
+  }
+}

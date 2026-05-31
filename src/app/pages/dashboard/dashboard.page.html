@@ -1,0 +1,67 @@
+<ion-content>
+  <div class="dashboard-page">
+    <div class="top-card">
+      <div>
+        <p class="hello">Welcome back 👋</p>
+        <h1>TradeX Paper</h1>
+        <p class="subtitle">Paper trading only. No real orders.</p>
+      </div>
+
+      <div class="rocket">🚀</div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card main">
+        <p>Demo Balance</p>
+        <h2>₹{{ demoBalance | number }}</h2>
+      </div>
+
+      <div class="stat-card">
+        <p>Today P&L</p>
+        <h2 [class.profit]="todayPnl >= 0" [class.loss]="todayPnl < 0">
+          ₹{{ todayPnl | number }}
+        </h2>
+      </div>
+
+      <div class="stat-card">
+        <p>Active Trades</p>
+        <h2>{{ activeTrades }}</h2>
+      </div>
+    </div>
+
+    <div class="section-title">
+      <h2>Live Market</h2>
+      <button>View All</button>
+    </div>
+
+    <div class="market-list">
+      <div class="market-card" *ngFor="let asset of assets">
+        <div class="asset-left">
+          <div class="asset-icon">
+            {{ asset.name.charAt(0) }}
+          </div>
+
+          <div>
+            <h3>{{ asset.symbol }}</h3>
+            <p>{{ asset.name }} · {{ asset.type }}</p>
+          </div>
+        </div>
+
+        <div class="asset-right">
+          <h3>{{ asset.price }}</h3>
+          <span [class.up]="asset.change >= 0" [class.down]="asset.change < 0">
+            {{ asset.change }}%
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom-nav">
+      <div class="nav-item active">🏠<span>Home</span></div>
+      <div class="nav-item">📊<span>Market</span></div>
+      <div class="nav-item">⚡<span>Trade</span></div>
+      <div class="nav-item">💼<span>Portfolio</span></div>
+      <div class="nav-item">👤<span>Profile</span></div>
+    </div>
+  </div>
+</ion-content>
