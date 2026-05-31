@@ -11,6 +11,7 @@ import {
 import { MarketService } from 'src/app/app/core/services/market';
 import { FormsModule } from '@angular/forms';
 
+
 type MarketTab = 'All' | 'Crypto' | 'Metal';
 
 interface Asset {
@@ -36,6 +37,7 @@ interface Asset {
     IonSegment,
     IonSegmentButton,
     IonLabel,
+    FormsModule
   ],
 })
 export class MarketPage implements OnInit, OnDestroy {

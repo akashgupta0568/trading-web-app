@@ -1,0 +1,164 @@
+.trade-page {
+  min-height: 100%;
+  padding: 22px;
+  background: #fbf7ec;
+  color: #111;
+}
+
+.page-header {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 20px;
+
+  button {
+    width: 44px;
+    height: 44px;
+    border-radius: 16px;
+    border: 1px solid #111;
+    background: #c9f56a;
+    font-size: 22px;
+    font-weight: 900;
+    box-shadow: 4px 4px 0 #111;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 900;
+  }
+
+  p {
+    margin: 4px 0 0;
+    color: #666;
+    font-size: 13px;
+  }
+}
+
+.asset-card,
+.trade-card {
+  background: #fffaf0;
+  border: 1px solid #111;
+  border-radius: 28px;
+  padding: 18px;
+  box-shadow: 6px 6px 0 #111;
+  margin-bottom: 20px;
+}
+
+.asset-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h2 {
+    margin: 6px 0;
+    font-size: 22px;
+    font-weight: 900;
+  }
+
+  p {
+    margin: 0;
+    color: #666;
+    font-size: 13px;
+  }
+}
+
+.label {
+  margin: 0 0 10px;
+  font-weight: 800;
+  color: #555;
+  font-size: 13px;
+}
+
+.price-box {
+  text-align: right;
+
+  span {
+    font-size: 12px;
+    font-weight: 800;
+    padding: 4px 8px;
+    border-radius: 20px;
+  }
+}
+
+.up {
+  background: #dcf9c4;
+  color: #148a3b;
+}
+
+.down {
+  background: #ffe0df;
+  color: #d83a3a;
+}
+
+ion-segment {
+  background: #fbf7ec;
+  border: 1px solid #111;
+  border-radius: 18px;
+  padding: 4px;
+  margin-bottom: 16px;
+}
+
+ion-segment-button {
+  --indicator-color: #c9f56a;
+  --color-checked: #111;
+  --color: #555;
+  font-weight: 900;
+}
+
+ion-input {
+  margin-bottom: 14px;
+  --border-radius: 16px;
+  --background: #fff;
+}
+
+.summary-box {
+  background: #fbf7ec;
+  border: 1px dashed #111;
+  border-radius: 20px;
+  padding: 14px;
+  margin: 14px 0;
+
+  div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  p {
+    margin: 0;
+    font-size: 13px;
+    color: #666;
+  }
+
+  strong {
+    font-size: 14px;
+  }
+}
+
+.profit {
+  color: #148a3b;
+}
+
+.loss {
+  color: #d83a3a;
+}
+
+ion-button {
+  margin-top: 16px;
+  --border-radius: 16px;
+  --background: #c9f56a;
+  --color: #111;
+  font-weight: 900;
+}
+
+.note {
+  margin-top: 12px;
+  font-size: 12px;
+  color: #666;
+  text-align: center;
+}

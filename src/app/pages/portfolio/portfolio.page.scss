@@ -1,0 +1,163 @@
+.portfolio-page {
+  min-height: 100%;
+  padding: 22px;
+  background: #fbf7ec;
+  color: #111;
+}
+
+.page-header {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 20px;
+
+  button {
+    width: 44px;
+    height: 44px;
+    border-radius: 16px;
+    border: 1px solid #111;
+    background: #c9f56a;
+    font-size: 22px;
+    font-weight: 900;
+    box-shadow: 4px 4px 0 #111;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 900;
+  }
+
+  p {
+    margin: 4px 0 0;
+    color: #666;
+    font-size: 13px;
+  }
+}
+
+.summary-card,
+.empty-box,
+.position-card {
+  background: #fffaf0;
+  border: 1px solid #111;
+  border-radius: 28px;
+  padding: 18px;
+  box-shadow: 6px 6px 0 #111;
+  margin-bottom: 18px;
+}
+
+.summary-card {
+  p {
+    margin: 0;
+    color: #666;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  h2 {
+    margin: 8px 0;
+    font-size: 32px;
+    font-weight: 900;
+  }
+
+  span {
+    font-size: 13px;
+    font-weight: 700;
+  }
+}
+
+.empty-box {
+  text-align: center;
+
+  h2 {
+    margin-top: 0;
+    font-size: 22px;
+    font-weight: 900;
+  }
+
+  p {
+    color: #666;
+  }
+}
+
+.position-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.position-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 900;
+  }
+
+  p {
+    margin: 4px 0 0;
+    color: #666;
+    font-size: 13px;
+  }
+}
+
+.trade-type {
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.buy {
+  background: #dcf9c4;
+  color: #148a3b;
+}
+
+.sell {
+  background: #ffe0df;
+  color: #d83a3a;
+}
+
+.position-grid {
+  margin: 18px 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+
+  div {
+    background: #fbf7ec;
+    border: 1px dashed #111;
+    border-radius: 18px;
+    padding: 12px;
+  }
+
+  p {
+    margin: 0;
+    color: #777;
+    font-size: 12px;
+  }
+
+  strong {
+    display: block;
+    margin-top: 6px;
+    font-size: 14px;
+  }
+}
+
+.profit {
+  color: #148a3b;
+}
+
+.loss {
+  color: #d83a3a;
+}
+
+ion-button {
+  --border-radius: 16px;
+  --background: #c9f56a;
+  --color: #111;
+  font-weight: 900;
+}

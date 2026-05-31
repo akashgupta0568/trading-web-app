@@ -1,0 +1,107 @@
+<ion-content>
+  <div class="trade-page">
+    <div class="page-header">
+      <button type="button" (click)="goBack()">←</button>
+
+      <div>
+        <h1>Trade</h1>
+        <p>Place paper trade only</p>
+      </div>
+    </div>
+
+    <div class="asset-card">
+      <div>
+        <p class="label">Selected Asset</p>
+        <h2>{{ selectedAsset.symbol }}</h2>
+        <p>{{ selectedAsset.name }} · {{ selectedAsset.type }}</p>
+      </div>
+
+      <div class="price-box">
+        <h2 *ngIf="selectedAsset.price > 0">
+          {{ selectedAsset.price | number:'1.2-4' }}
+        </h2>
+
+        <h2 *ngIf="selectedAsset.price === 0">
+          Loading...
+        </h2>
+
+        <span [class.up]="selectedAsset.change >= 0" [class.down]="selectedAsset.change < 0">
+          {{ selectedAsset.change | number:'1.2-2' }}%
+        </span>
+      </div>
+    </div>
+
+    <div class="trade-card">
+      <p class="label">Trade Type</p>
+
+      <ion-segment [(ngModel)]="tradeType" (ionChange)="onTradeTypeChange()">
+        <ion-segment-button value="BUY">
+          <ion-label>BUY</ion-label>
+        </ion-segment-button>
+
+        <ion-segment-button value="SELL">
+          <ion-label>SELL</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+
+      <ion-input
+        label="Quantity"
+        label-placement="floating"
+        fill="outline"
+        type="number"
+        [(ngModel)]="quantity">
+      </ion-input>
+
+      <ion-input
+        label="Stop Loss"
+        label-placement="floating"
+        fill="outline"
+        type="number"
+        [(ngModel)]="stopLoss">
+      </ion-input>
+
+      <ion-input
+        label="Target"
+        label-placement="floating"
+        fill="outline"
+        type="number"
+        [(ngModel)]="target">
+      </ion-input>
+
+      <div class="summary-box">
+        <div>
+          <p>Demo Balance</p>
+          <strong>₹{{ demoBalance | number:'1.2-2' }}</strong>
+        </div>
+
+        <div>
+          <p>Estimated Margin</p>
+          <strong>₹{{ estimatedMargin | number:'1.2-2' }}</strong>
+        </div>
+
+        <div>
+          <p>P&L Preview</p>
+          <strong [class.profit]="pnlPreview >= 0" [class.loss]="pnlPreview < 0">
+            ₹{{ pnlPreview | number:'1.2-2' }}
+          </strong>
+        </div>
+      </div>
+
+      <ion-button expand="block" (click)="placeTrade()">
+        Confirm Paper Trade
+      </ion-button>
+
+      <p class="note">
+        Paper trading only. No real Binance order will be placed.
+      </p>
+
+      <ion-text color="danger" *ngIf="errorMessage">
+        <p>{{ errorMessage }}</p>
+      </ion-text>
+
+      <ion-text color="success" *ngIf="successMessage">
+        <p>{{ successMessage }}</p>
+      </ion-text>
+    </div>
+  </div>
+</ion-content>

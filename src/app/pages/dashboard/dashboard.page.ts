@@ -99,6 +99,10 @@ export class DashboardPage implements OnInit, OnDestroy {
     }
   }
 
+  goPortfolio(): void {
+  this.router.navigateByUrl('/portfolio');
+  }
+  
   goMarket(): void {
   this.router.navigateByUrl('/market');
 }

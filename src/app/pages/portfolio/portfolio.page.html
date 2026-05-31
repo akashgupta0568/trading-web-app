@@ -1,0 +1,87 @@
+<ion-content>
+  <div class="portfolio-page">
+    <div class="page-header">
+      <button type="button" (click)="goDashboard()">←</button>
+
+      <div>
+        <h1>Portfolio</h1>
+        <p>Open positions and live P&L</p>
+      </div>
+    </div>
+
+    <div class="summary-card">
+      <p>Total Live P&L</p>
+
+      <h2 [class.profit]="totalPnl >= 0" [class.loss]="totalPnl < 0">
+        ₹{{ totalPnl | number:'1.2-2' }}
+      </h2>
+
+      <span>{{ positions.length }} open trades</span>
+    </div>
+
+    <div class="empty-box" *ngIf="positions.length === 0">
+      <h2>No open trades</h2>
+      <p>Go to market and place your first paper trade.</p>
+
+      <ion-button expand="block" (click)="goMarket()">
+        Open Market
+      </ion-button>
+    </div>
+
+    <div class="position-list" *ngIf="positions.length > 0">
+      <div class="position-card" *ngFor="let position of positions">
+        <div class="position-top">
+          <div>
+            <h3>{{ position.symbol }}</h3>
+            <p>{{ position.assetName }}</p>
+          </div>
+
+          <span
+            class="trade-type"
+            [class.buy]="position.tradeType === 'BUY'"
+            [class.sell]="position.tradeType === 'SELL'">
+            {{ position.tradeType }}
+          </span>
+        </div>
+
+        <div class="position-grid">
+          <div>
+            <p>Entry</p>
+            <strong>{{ position.entryPrice | number:'1.2-4' }}</strong>
+          </div>
+
+          <div>
+            <p>Current</p>
+            <strong>{{ position.currentPrice | number:'1.2-4' }}</strong>
+          </div>
+
+          <div>
+            <p>Quantity</p>
+            <strong>{{ position.quantity }}</strong>
+          </div>
+
+          <div>
+            <p>P&L</p>
+            <strong [class.profit]="position.pnl >= 0" [class.loss]="position.pnl < 0">
+              ₹{{ position.pnl | number:'1.2-2' }}
+            </strong>
+          </div>
+
+          <div>
+            <p>Stop Loss</p>
+            <strong>{{ position.stopLoss | number:'1.2-4' }}</strong>
+          </div>
+
+          <div>
+            <p>Target</p>
+            <strong>{{ position.target | number:'1.2-4' }}</strong>
+          </div>
+        </div>
+
+        <ion-button expand="block" (click)="closeTrade(position)">
+          Close Trade
+        </ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>
