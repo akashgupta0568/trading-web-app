@@ -8,6 +8,7 @@ import {
 } from '@ionic/angular/standalone';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from 'src/app/app/core/services/auth';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
@@ -15,7 +16,7 @@ import { AuthService } from 'src/app/app/core/services/auth';
   templateUrl: './signup.page.html',
   styleUrls: ['./signup.page.scss'],
   standalone: true,
-  imports: [IonContent, IonInput, IonButton, IonText, FormsModule],
+  imports: [IonContent, IonInput, IonButton, IonText, FormsModule, CommonModule],
 })
 export class SignupPage {
   name = '';

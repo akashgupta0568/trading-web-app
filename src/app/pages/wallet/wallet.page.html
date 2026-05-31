@@ -1,0 +1,45 @@
+<ion-content>
+  <div class="wallet-page">
+    <div class="page-header">
+      <button type="button" (click)="goDashboard()">←</button>
+
+      <div>
+        <h1>Wallet</h1>
+        <p>Demo balance only</p>
+      </div>
+    </div>
+
+    <div class="balance-card">
+      <p>Available Demo Balance</p>
+      <h2>₹{{ demoBalance | number:'1.2-2' }}</h2>
+      <span>No real money. Paper trading only.</span>
+    </div>
+
+    <div class="deposit-card">
+      <h2>Add Demo Balance</h2>
+      <p class="note">
+        This is a Razorpay-style mock deposit flow. No real payment is collected.
+      </p>
+
+      <ion-input
+        label="Amount"
+        label-placement="floating"
+        fill="outline"
+        type="number"
+        [(ngModel)]="depositAmount">
+      </ion-input>
+
+      <ion-button expand="block" (click)="addBalance()">
+        Add Demo Balance
+      </ion-button>
+
+      <ion-text color="success" *ngIf="successMessage">
+        <p>{{ successMessage }}</p>
+      </ion-text>
+
+      <ion-text color="danger" *ngIf="errorMessage">
+        <p>{{ errorMessage }}</p>
+      </ion-text>
+    </div>
+  </div>
+</ion-content>

@@ -90,7 +90,7 @@ export class DashboardPage implements OnInit, OnDestroy {
 
     this.priceTimer = setInterval(() => {
       this.loadLivePrices();
-    }, 1000);
+    }, 10000);
   }
 
   ngOnDestroy(): void {
@@ -99,10 +99,14 @@ export class DashboardPage implements OnInit, OnDestroy {
     }
   }
 
+  goWallet(): void {
+  this.router.navigateByUrl('/wallet');
+  }
+
   goPortfolio(): void {
   this.router.navigateByUrl('/portfolio');
   }
-  
+
   goMarket(): void {
   this.router.navigateByUrl('/market');
 }
